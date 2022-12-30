@@ -34,7 +34,7 @@ class Solution:
             1 <= arr.length <= 500
             0 <= arr[i] <= 104
         """
-        nums = [(bin(i).count('1'), i)for i in arr]
+        nums = [(bin(i).count('1'), i) for i in arr]
         nums = sorted(nums)
         return [_[1] for _ in nums]
 
