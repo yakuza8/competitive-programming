@@ -36,8 +36,7 @@ class Solution:
             stone2 = heapq.heappop(stones)
 
             if stone1 != stone2:
-                remain_crack = -abs(stone2 - stone1)
-                heapq.heappush(stones, remain_crack)
+                heapq.heappush(stones, stone1 - stone2)
 
         return 0 if not stones else -stones[0]
 
@@ -46,5 +45,10 @@ class LastStoneWeight(unittest.TestCase):
 
     def test_case_1(self):
         stones = [2, 7, 4, 1, 8, 1]
+        expected_result = 1
+        self.assertEqual(expected_result, Solution.lastStoneWeight(stones))
+
+    def test_case_2(self):
+        stones = [1]
         expected_result = 1
         self.assertEqual(expected_result, Solution.lastStoneWeight(stones))
