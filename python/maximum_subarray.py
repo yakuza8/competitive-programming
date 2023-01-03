@@ -19,15 +19,11 @@ class Solution:
         If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach,
         which is more subtle.
         """
-
-        delegated_sum = nums[0]
-        max_sum = nums[0]
-
-        for i in range(1, len(nums)):
-            current_number = nums[i]
-            delegated_sum = max(delegated_sum + current_number, current_number)
-            max_sum = max(max_sum, delegated_sum)
-        return max_sum
+        ans = current_sum = nums[0]
+        for num in nums[1::]:
+            current_sum = max(num, current_sum + num)
+            ans = max(ans, current_sum)
+        return ans
 
 
 class MaximumSubarray(unittest.TestCase):
